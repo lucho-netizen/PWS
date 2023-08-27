@@ -9,11 +9,13 @@
     <!-- En popup.html -->
 <style>
     body {
-  font-family: Arial, sans-serif;
-  background-color: #222;
-  color: #fff;
-  padding: 20px;
-}
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    margin-top: -7;
+    display: inline-table;
+  }
 
 h1 {
   text-align: center;
@@ -24,6 +26,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  min-width: 100px;
 }
 
 #password-input {
@@ -34,6 +37,7 @@ h1 {
   padding: 5px;
   border-radius: 5px;
   border: none;
+  text-align: center;
   background-color: #333;
   color: #fff;
 }
@@ -100,7 +104,7 @@ body.dark-mode {
     <input type="range" id="password-length-range" min="8" max="20" value="14">
     <span id="password-length-label">14</span>
     <button id="generate-button">Genera Contraseña</button>
-    <button id="mini-popup-copy-button" title="Copiar contraseña al portapapeles" class="copy-button" style="background-color: aqua;">
+    <button id="mini-popup-copy-button" title="Copiar contraseña" class="copy-button" style="background-color: aqua;">
         <img src="copy-icong.png" alt="Copy Icon" width="18px" height="18px" >
     </button>
 </div>
