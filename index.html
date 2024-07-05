@@ -104,26 +104,26 @@ body.dark-mode {
 <div id="password-container">
     <input type="text" id="password-input" readonly>
     <input type="range" id="password-length-range" min="8" max="32" value="14">
-    <span id="password-length-label">14</span>
+    <span id="password-length-label">12</span>
     <div>
         <label>
-            <input type="checkbox" id="include-uppercase"> Mayúsculas
+            <input type="checkbox" id="include-uppercase" checked> Mayúsculas
         </label>
         <label>
             <input type="checkbox" id="include-lowercase" checked> Minúsculas
         </label>
         <label>
-            <input type="checkbox" id="include-numbers"> Números
+            <input type="checkbox" id="include-numbers" > Números
         </label>
         <label>
-            <input type="checkbox" id="include-special"> Caracteres especiales
+            <input type="checkbox" id="include-special" checked> Caracteres especiales
         </label>
     </div>
     <button id="generate-button">Genera Contraseña</button>
     <button id="mini-popup-copy-button" title="Copiar contraseña" class="copy-button" style="background-color: aqua;">
         <img src="copy-icon.png" alt="Copy Icon" width="18px" height="18px">
     </button>
-    <div id="strength-indicator">Fortaleza: <span id="strength-text">Débil</span></div>
+    <div id="strength-indicator">Fortaleza: <span id="strength-text"></span></div>
     
 </div>
 <script src="popup.js"></script>

@@ -201,10 +201,6 @@ document.addEventListener("DOMContentLoaded", function () {
     generatePasswordAutomatically();
 
     generateButton.addEventListener("click", function () {
-        if (!includeUppercase.checked && !includeLowercase.checked && !includeNumbers.checked && !includeSpecial.checked) {
-            alert("Seleccione al menos una opción de tipo de carácter.");
-            return;
-        }
         const passwordLength = passwordLengthRange.value;
         const password = generatePassword(
             passwordLength,
