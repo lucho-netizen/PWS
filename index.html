@@ -1,132 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <!-- En popup.html -->
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
-    margin-top: -7;
-    display: inline-table;
-}
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #222;
+        color: #fff;
+        padding: 20px;
+        margin-top: -7;
+        display: inline-table;
+      }
 
-h1 {
-  text-align: center;
-}
+      h1 {
+        text-align: center;
+      }
 
-#password-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-  min-width: 100px;
-}
+      #password-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        min-width: 100px;
+      }
 
-#password-input {
-  width: 300px;
-  height: 40px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-  text-align: center;
-  background-color: #333;
-  color: #fff;
-}
+      #password-input {
+        width: 300px;
+        height: 40px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        overflow: auto;
+        white-space: nowrap;
+      }
 
-#generate-button,
-#mini-popup-copy-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+      @media screen and(max-width: 320px) {
+        #password-input{
+          font-size: 10px;
+        }
+      }
 
-#generate-button:hover,
-#mini-popup-copy-button:hover {
-  background-color: #45a049;
-}
+      #generate-button,
+      #mini-popup-copy-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-.copy-button {
-  margin-top: 10px;
-  background: none;
-  border: none;
-  padding: 0;
-}
+      #generate-button:hover,
+      #mini-popup-copy-button:hover {
+        background-color: #45a049;
+      }
 
-.copy-button img {
-  vertical-align: middle;
-}
+      .copy-button {
+        margin-top: 10px;
+        background: none;
+        border: none;
+        padding: 0;
+      }
 
-/* Modo oscuro */
+      .copy-button img {
+        vertical-align: middle;
+      }
 
-body.dark-mode {
-  background-color: #333;
-  color: #fff;
-}
+      /* Modo oscuro */
 
-#password-container.dark-mode {
-  border: 1px solid #777;
-}
+      body.dark-mode {
+        background-color: #333;
+        color: #fff;
+      }
 
-#password-input.dark-mode {
-  background-color: #444;
-}
+      #password-container.dark-mode {
+        border: 1px solid #777;
+      }
 
-#generate-button.dark-mode,
-#mini-popup-copy-button.dark-mode {
-  background-color: #ff9800;
-}
+      #password-input.dark-mode {
+        background-color: #444;
+      }
 
-#generate-button.dark-mode:hover,
-#mini-popup-copy-button.dark-mode:hover {
-  background-color: #f57c00;
-}
+      #generate-button.dark-mode,
+      #mini-popup-copy-button.dark-mode {
+        background-color: #ff9800;
+      }
 
+      #generate-button.dark-mode:hover,
+      #mini-popup-copy-button.dark-mode:hover {
+        background-color: #f57c00;
+      }
+    </style>
 
-
-</style>
-
-<h1>Genera Contraseña</h1>
-<div id="password-container">
-    <input type="text" id="password-input" readonly>
-    <input type="range" id="password-length-range" min="8" max="32" value="14">
-    <span id="password-length-label">12</span>
-    <div>
+    <h1>Genera Contraseña</h1>
+    <div id="password-container">
+      <input type="text" id="password-input" readonly />
+      <input
+        type="range"
+        id="password-length-range"
+        min="8"
+        max="32"
+        value="14"
+      />
+      <span id="password-length-label">12</span>
+      <div>
         <label>
-            <input type="checkbox" id="include-uppercase" checked> Mayúsculas
+          <input type="checkbox" id="include-uppercase" checked /> Mayúsculas
         </label>
         <label>
-            <input type="checkbox" id="include-lowercase" checked> Minúsculas
+          <input type="checkbox" id="include-lowercase" checked /> Minúsculas
         </label>
+        <label> <input type="checkbox" id="include-numbers" /> Números </label>
         <label>
-            <input type="checkbox" id="include-numbers" > Números
+          <input type="checkbox" id="include-special" checked /> Caracteres
+          especiales
         </label>
-        <label>
-            <input type="checkbox" id="include-special" checked> Caracteres especiales
-        </label>
+      </div>
+      <button id="generate-button">Genera Contraseña</button>
+      <button
+        id="mini-popup-copy-button"
+        title="Copiar contraseña"
+        class="copy-button"
+        style="background-color: aqua"
+      >
+        <img src="copy-icon.png" alt="Copy Icon" width="18px" height="18px" />
+      </button>
+      <div id="strength-indicator">
+        Fortaleza: <span id="strength-text"></span>
+      </div>
     </div>
-    <button id="generate-button">Genera Contraseña</button>
-    <button id="mini-popup-copy-button" title="Copiar contraseña" class="copy-button" style="background-color: aqua;">
-        <img src="copy-icon.png" alt="Copy Icon" width="18px" height="18px">
-    </button>
-    <div id="strength-indicator">Fortaleza: <span id="strength-text"></span></div>
-    
-</div>
-<script src="popup.js"></script>
-
-</body>
+    <script src="popup.js"></script>
+  </body>
 </html>
