@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- En popup.html -->
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    margin-top: -7px;
+    display: inline-table;
+}
+
+h1 {
+    text-align: center;
+}
+
+#password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    min-width: 100px;
+}
+
+#password-input {
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+#generate-button,
+#mini-popup-copy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#generate-button:hover,
+#mini-popup-copy-button:hover {
+    background-color: #45a049;
+}
+
+.copy-button {
+    margin-top: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.copy-button img {
+    vertical-align: middle;
+}
+
+/* Estilos para checkboxes */
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #4caf50;
+}
+
+/* Modo oscuro */
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+#password-container.dark-mode {
+    border: 1px solid #777;
+}
+
+#password-input.dark-mode {
+    background-color: #444;
+}
+
+#generate-button.dark-mode,
+#mini-popup-copy-button.dark-mode {
+    background-color: #ff9800;
+}
+
+#generate-button.dark-mode:hover,
+#mini-popup-copy-button.dark-mode:hover {
+    background-color: #f57c00;
+}
+
+input[type="checkbox"].dark-mode {
+    accent-color: #ff9800;
+}
+
+
+</style>
+
+<h1>Genera Contraseña</h1>
+<div id="password-container">
+    <input type="text" id="password-input" readonly>
+    <input type="range" id="password-length-range" min="8" max="32" value="14">
+    <span id="password-length-label">14</span>
+    <br>
+    <label>
+        <input type="checkbox" id="include-uppercase" checked> Mayúsculas
+    </label>
+    <label>
+        <input type="checkbox" id="include-lowercase" checked> Minúsculas
+    </label>
+    <label>
+        <input type="checkbox" id="include-numbers" checked> Números
+    </label>
+    <label>
+        <input type="checkbox" id="include-special" checked> Caracteres especiales
+    </label>
+    <br>
+    <button id="generate-button">Genera Contraseña</button>
+    <button id="mini-popup-copy-button" title="Copiar contraseña" class="copy-button" style="background-color: aqua;">
+        <img src="copy-icon.png" alt="Copy Icon" width="18px" height="18px">
+    </button>
+</div>
+<script src="popup.js"></script>
+
+</body>
+</html>
